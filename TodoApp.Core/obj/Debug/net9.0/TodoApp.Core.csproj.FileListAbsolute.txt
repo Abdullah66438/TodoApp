@@ -1,0 +1,11 @@
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/bin/Debug/net9.0/TodoApp.Core.deps.json
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/bin/Debug/net9.0/TodoApp.Core.dll
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/bin/Debug/net9.0/TodoApp.Core.pdb
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.AssemblyInfoInputs.cache
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.AssemblyInfo.cs
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.csproj.CoreCompileInputs.cache
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.dll
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/refint/TodoApp.Core.dll
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.pdb
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/ref/TodoApp.Core.dll
