@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v9.0": {
       "TodoApp.Infrastructure/1.0.0": {
         "dependencies": {
+          "Microsoft.JSInterop": "9.0.10",
           "TodoApp.Core": "1.0.0"
         },
         "runtime": {
           "TodoApp.Infrastructure.dll": {}
+        }
+      },
+      "Microsoft.JSInterop/9.0.10": {
+        "runtime": {
+          "lib/net9.0/Microsoft.JSInterop.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.1025.47517"
+          }
         }
       },
       "TodoApp.Core/1.0.0": {
@@ -29,6 +38,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.JSInterop/9.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+Zxxwp8rspdxq6uIkaEtqWW/vljDr2tLiLuhPUYV0+CzeuFpuwcKJ95iz6L9xbakxqjZN3WjmJBtqWZfB+zC5A==",
+      "path": "microsoft.jsinterop/9.0.10",
+      "hashPath": "microsoft.jsinterop.9.0.10.nupkg.sha512"
     },
     "TodoApp.Core/1.0.0": {
       "type": "project",

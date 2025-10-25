@@ -5,6 +5,7 @@
 /Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.AssemblyInfoInputs.cache
 /Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.AssemblyInfo.cs
 /Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.csproj.CoreCompileInputs.cache
+/Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.sourcelink.json
 /Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.dll
 /Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/refint/TodoApp.Core.dll
 /Users/abdullah/Desktop/TodoApp/TodoApp.Core/obj/Debug/net9.0/TodoApp.Core.pdb

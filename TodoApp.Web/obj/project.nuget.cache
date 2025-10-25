@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QxW+UYykKw8=",
+  "dgSpecHash": "3QjvrmbDQMI=",
   "success": true,
   "projectFilePath": "/Users/abdullah/Desktop/TodoApp/TodoApp.Web/TodoApp.Web.csproj",
   "expectedPackageFiles": [
@@ -26,7 +26,7 @@
     "/Users/abdullah/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.4/microsoft.extensions.logging.abstractions.9.0.4.nupkg.sha512",
     "/Users/abdullah/.nuget/packages/microsoft.extensions.options/9.0.4/microsoft.extensions.options.9.0.4.nupkg.sha512",
     "/Users/abdullah/.nuget/packages/microsoft.extensions.primitives/9.0.4/microsoft.extensions.primitives.9.0.4.nupkg.sha512",
-    "/Users/abdullah/.nuget/packages/microsoft.jsinterop/9.0.4/microsoft.jsinterop.9.0.4.nupkg.sha512",
+    "/Users/abdullah/.nuget/packages/microsoft.jsinterop/9.0.10/microsoft.jsinterop.9.0.10.nupkg.sha512",
     "/Users/abdullah/.nuget/packages/microsoft.jsinterop.webassembly/9.0.4/microsoft.jsinterop.webassembly.9.0.4.nupkg.sha512",
     "/Users/abdullah/.nuget/packages/microsoft.net.illink.tasks/9.0.4/microsoft.net.illink.tasks.9.0.4.nupkg.sha512",
     "/Users/abdullah/.nuget/packages/microsoft.net.sdk.webassembly.pack/9.0.4/microsoft.net.sdk.webassembly.pack.9.0.4.nupkg.sha512",

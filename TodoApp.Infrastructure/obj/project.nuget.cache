@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9teyX+4d6vQ=",
+  "dgSpecHash": "Kp30JgVHC4E=",
   "success": true,
   "projectFilePath": "/Users/abdullah/Desktop/TodoApp/TodoApp.Infrastructure/TodoApp.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/abdullah/.nuget/packages/microsoft.jsinterop/9.0.10/microsoft.jsinterop.9.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

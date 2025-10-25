@@ -4,6 +4,10 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>TodoApp.Web</RootNamespace>
+    <AssemblyName>TodoApp.Web</AssemblyName>
+
+    <!-- This is the correct place for the service worker asset manifest -->
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
   </PropertyGroup>
 
@@ -13,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- If you keep a custom service worker file, list it here as an ItemGroup entry -->
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
   </ItemGroup>
 

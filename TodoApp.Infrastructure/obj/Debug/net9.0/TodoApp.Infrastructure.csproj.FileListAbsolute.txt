@@ -8,6 +8,7 @@
 /Users/abdullah/Desktop/TodoApp/TodoApp.Infrastructure/obj/Debug/net9.0/TodoApp.Infrastructure.AssemblyInfoInputs.cache
 /Users/abdullah/Desktop/TodoApp/TodoApp.Infrastructure/obj/Debug/net9.0/TodoApp.Infrastructure.AssemblyInfo.cs
 /Users/abdullah/Desktop/TodoApp/TodoApp.Infrastructure/obj/Debug/net9.0/TodoApp.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/abdullah/Desktop/TodoApp/TodoApp.Infrastructure/obj/Debug/net9.0/TodoApp.Infrastructure.sourcelink.json
 /Users/abdullah/Desktop/TodoApp/TodoApp.Infrastructure/obj/Debug/net9.0/TodoApp..D6B2378B.Up2Date
 /Users/abdullah/Desktop/TodoApp/TodoApp.Infrastructure/obj/Debug/net9.0/TodoApp.Infrastructure.dll
 /Users/abdullah/Desktop/TodoApp/TodoApp.Infrastructure/obj/Debug/net9.0/refint/TodoApp.Infrastructure.dll
