@@ -16,7 +16,7 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 
 // OR, if you want to bypass any namespace confusion, fully-qualify App:
-builder.RootComponents.Add<TodoApp.Web.App>("#app");
+//builder.RootComponents.Add<TodoApp.Web.App>("#app");
 
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
