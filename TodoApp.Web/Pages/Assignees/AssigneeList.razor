@@ -1,2 +1,62 @@
-@* list assignees *@
 @page "/assignees"
+@using TodoApp.Core.Domain
+@inject IAssigneeRepository AssigneeRepo
+@inject NavigationManager Nav
+
+<h3>Assignees</h3>
+
+<p><button class="btn btn-primary" @onclick="CreateNew">New Assignee</button></p>
+
+@if (loading)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-sm">
+        <thead><tr><th>Name</th><th>Email</th><th></th></tr></thead>
+        <tbody>
+            @foreach (var a in assignees)
+            {
+                <tr>
+                    <td>@a.Name</td>
+                    <td>@a.Email</td>
+                    <td>
+                        <button class="btn btn-sm btn-secondary me-1" @onclick="() => Edit(a.Id)">Edit</button>
+                        <button class="btn btn-sm btn-danger" @onclick="() => Delete(a.Id)">Delete</button>
+                        <button class="btn btn-sm btn-outline-primary ms-1" @onclick="() => ViewSchedule(a.Id)">Schedule</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Assignee> assignees = new();
+    private bool loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    private async Task Load()
+    {
+        loading = true;
+        assignees = (await AssigneeRepo.ListAsync()).ToList();
+        loading = false;
+    }
+
+    private void CreateNew() => Nav.NavigateTo("/assignees/new");
+    private void Edit(Guid id) => Nav.NavigateTo($"/assignees/{id}/edit");
+    private void ViewSchedule(Guid id) => Nav.NavigateTo($"/assignees/{id}/schedule");
+
+    [Inject] private IJSRuntime JS { get; set; } = default!;
+    private async Task Delete(Guid id)
+    {
+        if (!await JS.InvokeAsync<bool>("confirm", "Delete assignee?")) return;
+        await AssigneeRepo.DeleteAsync(id);
+        await Load();
+    }
+}

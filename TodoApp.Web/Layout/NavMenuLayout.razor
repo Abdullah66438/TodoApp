@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@namespace TodoApp.Web.Layout
+@inherits LayoutComponentBase
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">TodoApp.Web</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -19,9 +22,7 @@
                 <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            
-        </div>
+       <!-- Removed reference to non-existent Shared/NavMenu -->
     </nav>
 </div>
 

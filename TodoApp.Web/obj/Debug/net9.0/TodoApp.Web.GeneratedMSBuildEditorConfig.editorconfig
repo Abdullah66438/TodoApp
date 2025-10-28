@@ -52,10 +52,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/abdullah/Desktop/TodoApp/TodoApp.Web/Pages/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/abdullah/Desktop/TodoApp/TodoApp.Web/Pages/Tasks/TaskEdit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGFza3MvVGFza0VkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,6 +72,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-zo4ocp4pen
 
-[/Users/abdullah/Desktop/TodoApp/TodoApp.Web/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-m8tgd1tdh1
+[/Users/abdullah/Desktop/TodoApp/TodoApp.Web/Layout/NavMenuLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnVMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-q71e9bedct

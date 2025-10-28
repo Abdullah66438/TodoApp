@@ -1,3 +1,132 @@
-@* create/update task *@
 @page "/tasks/new"
 @page "/tasks/{Id:guid}/edit"
+@using TodoApp.Core.Domain
+@inject ITaskRepository TaskRepo
+@inject IAssigneeRepository AssigneeRepo
+@inject NavigationManager Nav
+
+<PageTitle>Task</PageTitle>
+
+<h3>@(isNew ? "New Task" : "Edit Task")</h3>
+
+@if (loading)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <EditForm Model="model" OnValidSubmit="SaveAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <InputText class="form-control" @bind-Value="model.Title" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <InputTextArea class="form-control" @bind-Value="model.Description" Rows="4" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Assignee</label>
+            <InputSelect class="form-select" @bind-Value="model.AssigneeId">
+                <option value="">-- Unassigned --</option>
+                @foreach (var a in assignees)
+                {
+                    <option value="@a.Id">@a.Name</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Due date (local)</label>
+            <InputDate class="form-control" @bind-Value="dueLocal" />
+            <small class="form-text text-muted">Leave blank for no deadline.</small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Priority</label>
+            <InputSelect class="form-select" @bind-Value="model.Priority">
+                @foreach (var p in Enum.GetValues<TaskPriority>())
+                {
+                    <option value="@p">@p</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Status</label>
+            <InputSelect class="form-select" @bind-Value="model.Status">
+                @foreach (var s in Enum.GetValues<TaskStatus>())
+                {
+                    <option value="@s">@s</option>
+                }
+            </InputSelect>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-secondary ms-2" type="button" @onclick="Cancel">Cancel</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public Guid? Id { get; set; }
+
+    private ProjectTask model = new();
+    private List<Assignee> assignees = new();
+    private bool isNew = true;
+    private bool loading = true;
+
+    // local binding for date so UI uses local time; store as UTC
+    private DateTime? dueLocal;
+
+    protected override async Task OnInitializedAsync()
+    {
+        assignees = (await AssigneeRepo.ListAsync()).ToList();
+
+        if (Id.HasValue)
+        {
+            isNew = false;
+            var t = await TaskRepo.GetAsync(Id.Value);
+            if (t is null)
+            {
+                // Not found → back to list
+                Nav.NavigateTo("/tasks");
+                return;
+            }
+            model = t;
+            dueLocal = model.DueDate?.ToLocalTime();
+        }
+        else
+        {
+            isNew = true;
+            model = new ProjectTask();
+            dueLocal = null;
+        }
+
+        loading = false;
+    }
+
+    private async Task SaveAsync()
+    {
+        // normalize DueDate to UTC
+        model.DueDate = dueLocal.HasValue ? DateTime.SpecifyKind(dueLocal.Value, DateTimeKind.Local).ToUniversalTime() : (DateTime?)null;
+        model.UpdatedAtUtc = DateTime.UtcNow;
+
+        if (isNew)
+        {
+            model.CreatedAtUtc = DateTime.UtcNow;
+            await TaskRepo.AddAsync(model);
+        }
+        else
+        {
+            await TaskRepo.UpdateAsync(model);
+        }
+
+        Nav.NavigateTo("/tasks");
+    }
+
+    private void Cancel() => Nav.NavigateTo("/tasks");
+}

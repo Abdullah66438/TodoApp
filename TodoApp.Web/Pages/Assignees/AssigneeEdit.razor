@@ -1,3 +1,75 @@
-@* create/update assignee *@
 @page "/assignees/new"
 @page "/assignees/{Id:guid}/edit"
+@using TodoApp.Core.Domain
+@inject IAssigneeRepository AssigneeRepo
+@inject NavigationManager Nav
+
+<PageTitle>Assignee</PageTitle>
+
+<h3>@(isNew ? "New Assignee" : "Edit Assignee")</h3>
+
+@if (loading)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <EditForm Model="model" OnValidSubmit="SaveAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <InputText class="form-control" @bind-Value="model.Name" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <InputText class="form-control" @bind-Value="model.Email" />
+        </div>
+
+        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-secondary ms-2" type="button" @onclick="Cancel">Cancel</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public Guid? Id { get; set; }
+    private Assignee model = new();
+    private bool isNew = true;
+    private bool loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id.HasValue)
+        {
+            isNew = false;
+            var a = await AssigneeRepo.GetAsync(Id.Value);
+            if (a is null) { Nav.NavigateTo("/assignees"); return; }
+            model = a;
+        }
+        else
+        {
+            isNew = true;
+            model = new Assignee();
+        }
+        loading = false;
+    }
+
+    private async Task SaveAsync()
+    {
+        model.UpdatedAtUtc = DateTime.UtcNow;
+        if (isNew)
+        {
+            model.CreatedAtUtc = DateTime.UtcNow;
+            await AssigneeRepo.AddAsync(model);
+        }
+        else
+        {
+            await AssigneeRepo.UpdateAsync(model);
+        }
+        Nav.NavigateTo("/assignees");
+    }
+
+    private void Cancel() => Nav.NavigateTo("/assignees");
+}

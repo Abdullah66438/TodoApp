@@ -1,2 +1,84 @@
-@* list tasks *@
 @page "/tasks"
+@using TodoApp.Core.Domain
+@inject ITaskRepository TaskRepo
+@inject IAssigneeRepository AssigneeRepo
+@inject NavigationManager Nav
+
+<h3>Tasks</h3>
+
+<p>
+    <button class="btn btn-primary" @onclick="CreateNew">New Task</button>
+</p>
+
+@if (loading)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Due</th>
+                <th>Assignee</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in tasks)
+            {
+                <tr>
+                    <td>@t.Title</td>
+                    <td>@(t.DueDate.HasValue ? t.DueDate.Value.ToLocalTime().ToString("g") : "-")</td>
+                    <td>@(assigneeMap.TryGetValue(t.AssigneeId ?? Guid.Empty, out var name) ? name : "-")</td>
+                    <td>@t.Priority</td>
+                    <td>@t.Status</td>
+                    <td>
+                        <button class="btn btn-sm btn-secondary me-1" @onclick="() => Edit(t.Id)">Edit</button>
+                        <button class="btn btn-sm btn-danger" @onclick="() => Delete(t.Id)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ProjectTask> tasks = new();
+    private Dictionary<Guid, string> assigneeMap = new();
+    private bool loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadAll();
+    }
+
+    private async Task LoadAll()
+    {
+        loading = true;
+        var asgns = await AssigneeRepo.ListAsync();
+        assigneeMap = asgns.ToDictionary(a => a.Id, a => a.Name);
+        var list = await TaskRepo.ListAsync();
+        tasks = list.ToList();
+        loading = false;
+    }
+
+    private void CreateNew() => Nav.NavigateTo("/tasks/new");
+
+    private void Edit(Guid id) => Nav.NavigateTo($"/tasks/{id}/edit");
+
+    private async Task Delete(Guid id)
+    {
+        if (!await JsConfirm($"Delete task?")) return;
+
+        await TaskRepo.DeleteAsync(id);
+        await LoadAll();
+    }
+
+    // small JS confirm helper via IJSRuntime
+    [Inject] private IJSRuntime JS { get; set; } = default!;
+    private async Task<bool> JsConfirm(string text) => await JS.InvokeAsync<bool>("confirm", text);
+}

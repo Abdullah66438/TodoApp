@@ -1,2 +1,64 @@
-@* assignee schedule *@
 @page "/assignees/{Id:guid}/schedule"
+@using TodoApp.Core.Domain
+@inject ITaskRepository TaskRepo
+@inject IAssigneeRepository AssigneeRepo
+@inject NavigationManager Nav
+
+<PageTitle>Schedule</PageTitle>
+
+<h3>Scheduled tasks</h3>
+
+@if (loading)
+{
+    <p><em>Loading...</em></p>
+}
+else if (assignee == null)
+{
+    <p><em>Assignee not found</em></p>
+}
+else
+{
+    <h5>@assignee.Name (@assignee.Email)</h5>
+
+    @if (!tasks.Any())
+    {
+        <p><em>No tasks scheduled.</em></p>
+    }
+    else
+    {
+        <table class="table">
+            <thead><tr><th>Due</th><th>Title</th><th>Priority</th><th>Status</th></tr></thead>
+            <tbody>
+                @foreach (var t in tasks)
+                {
+                    <tr>
+                        <td>@(t.DueDate.HasValue ? t.DueDate.Value.ToLocalTime().ToString("g") : "-")</td>
+                        <td>@t.Title</td>
+                        <td>@t.Priority</td>
+                        <td>@t.Status</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+
+@code {
+    [Parameter] public Guid Id { get; set; }
+    private Assignee? assignee;
+    private List<ProjectTask> tasks = new();
+    private bool loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loading = true;
+        assignee = await AssigneeRepo.GetAsync(Id);
+        if (assignee != null)
+        {
+            var list = await TaskRepo.ListByAssigneeAsync(Id);
+            // ensure sorted by DueDate (nulls last)
+            tasks = list.OrderBy(t => t.DueDate ?? DateTime.MaxValue).ToList();
+        }
+        loading = false;
+    }
+}
