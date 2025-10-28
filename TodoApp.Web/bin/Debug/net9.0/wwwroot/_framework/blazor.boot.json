@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "TodoApp.Web",
   "resources": {
-    "hash": "sha256-sBVQJ/Sb3UhrSnOck0862P2lOcpwwQbHs9Q4b3bbepQ=",
+    "hash": "sha256-mQUHMWbXAVhCM1V9R2uhjnX61KBw0s0iwqAJ4eUuHmA=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Authorization.gf26ou9jj9.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.v3fd2n5hlr.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -201,12 +201,12 @@
       "icudt_CJK.tjcz0u77k5.dat": "icudt_CJK.dat",
       "icudt_EFIGS.tptq2av103.dat": "icudt_EFIGS.dat",
       "icudt_no_CJK.lfu7j35m59.dat": "icudt_no_CJK.dat",
-      "TodoApp.Core.vxu5ro93i5.wasm": "TodoApp.Core.wasm",
-      "TodoApp.Infrastructure.wss2ui81ma.wasm": "TodoApp.Infrastructure.wasm",
-      "TodoApp.Core.22p29mp8zd.pdb": "TodoApp.Core.pdb",
-      "TodoApp.Infrastructure.rlek8afwdk.pdb": "TodoApp.Infrastructure.pdb",
-      "TodoApp.Web.fw2zk310ih.wasm": "TodoApp.Web.wasm",
-      "TodoApp.Web.x3u5gupt4e.pdb": "TodoApp.Web.pdb"
+      "TodoApp.Core.jxonhmv2r3.wasm": "TodoApp.Core.wasm",
+      "TodoApp.Infrastructure.ra91dse8ap.wasm": "TodoApp.Infrastructure.wasm",
+      "TodoApp.Core.s3f8q3ds54.pdb": "TodoApp.Core.pdb",
+      "TodoApp.Infrastructure.mtn172wihu.pdb": "TodoApp.Infrastructure.pdb",
+      "TodoApp.Web.ufus7pw3ve.wasm": "TodoApp.Web.wasm",
+      "TodoApp.Web.eu3bpbtwfd.pdb": "TodoApp.Web.pdb"
     },
     "jsModuleNative": {
       "dotnet.native.hvg7u8bimp.js": "sha256-LX9rFEWGVxhkOkAVPG0w5RxPwzPBlEUz6dQNjWS7M+M="
@@ -416,14 +416,14 @@
       "WindowsBase.5lai2eowco.wasm": "sha256-GcDi5293y2A7oSiFYTbBTUe0d+ISbvgeel4ZNd8KkPM=",
       "mscorlib.wzkfrp7u5k.wasm": "sha256-9PjsU0gaxxz5Vyw++p9DeYUWLsaXbaMS2RbX6wmTUmk=",
       "netstandard.d82br99ghv.wasm": "sha256-DS8keXxU4eQpa1kIoiFxOA2Ii2g9hoNWSaVi8F8AnIE=",
-      "TodoApp.Core.vxu5ro93i5.wasm": "sha256-49Zf+xH6s/9M2I1qjkDhGaoMjnVyxDrnbRJSJ4OFNF8=",
-      "TodoApp.Infrastructure.wss2ui81ma.wasm": "sha256-sNt4H9RCAGbYmD9irkp8d/B4w1O+2oRTl/0rUog+2rQ=",
-      "TodoApp.Web.fw2zk310ih.wasm": "sha256-kXbB/DWCsjznpbiNJ8RZeMIqy41JEvGHhUu2imvbA+c="
+      "TodoApp.Core.jxonhmv2r3.wasm": "sha256-9xY1O+bECWlSGiEcCw20cWKYKy2tJ3G80/371+gf3xE=",
+      "TodoApp.Infrastructure.ra91dse8ap.wasm": "sha256-rR2loswnmjjeAwlAjfvwXLpJ1Mh23HOkBq9PGv90p2E=",
+      "TodoApp.Web.ufus7pw3ve.wasm": "sha256-5kuqN+gn38GtXdwhg3kcEwFuCzRf0w7g7XuZgDg7Qrc="
     },
     "pdb": {
-      "TodoApp.Core.22p29mp8zd.pdb": "sha256-psPrFl4wha/dbgrUiWsKC7c+OaXM8lSEdARbbGL/Fy0=",
-      "TodoApp.Infrastructure.rlek8afwdk.pdb": "sha256-ERnzXH7TviCFdcxsKRL7Esc9+5VkNUyhILWSZUVXKb0=",
-      "TodoApp.Web.x3u5gupt4e.pdb": "sha256-rT/fHNF0jXU6l5stTSHC8vjKZw0r1OgK3VLO0rb4r8c="
+      "TodoApp.Core.s3f8q3ds54.pdb": "sha256-eBQ4pOQ0SQwpNUxo9tHv+sz45o2duGYqS6Di7FHBbIM=",
+      "TodoApp.Infrastructure.mtn172wihu.pdb": "sha256-2l0VupkYcIFzd+LnAoOldwNoiRfppL31IdAy7IwK+R0=",
+      "TodoApp.Web.eu3bpbtwfd.pdb": "sha256-Nn19H5ur4Vsbvaw1wDx6mzZn04/qxkf7HtksxeOJotE="
     }
   },
   "cacheBootResources": true,

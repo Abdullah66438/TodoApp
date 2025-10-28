@@ -12,17 +12,50 @@
 
 <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="nav flex-column">
+        <!-- Primary -->
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
             </NavLink>
         </div>
+
+        <!-- Core app pages -->
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+            <NavLink class="nav-link" href="/tasks" Match="NavLinkMatch.Prefix">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Tasks
             </NavLink>
         </div>
-       <!-- Removed reference to non-existent Shared/NavMenu -->
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/tasks/new" Match="NavLinkMatch.All">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> New Task
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/assignees" Match="NavLinkMatch.Prefix">
+                <span class="bi bi-people-fill" aria-hidden="true"></span> Assignees
+            </NavLink>
+        </div>
+
+       <!-- <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/weather" Match="NavLinkMatch.Prefix">
+                <span class="bi bi-cloud-sun" aria-hidden="true"></span> Weather
+            </NavLink>
+        </div>
+
+         Utility 
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/counter">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>-->
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/about">
+                <span class="bi bi-info-circle" aria-hidden="true"></span> About
+            </NavLink>
+        </div>
     </nav>
 </div>
 

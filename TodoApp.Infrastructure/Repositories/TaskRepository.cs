@@ -46,6 +46,12 @@ public sealed class TaskRepository : ITaskRepository
         if (entity.DueDate.HasValue)
             entity.DueDate = DateTime.SpecifyKind(entity.DueDate.Value, DateTimeKind.Utc);
 
+        // Ensure Id exists — prevents "key path did not yield a value"
+        if (entity.Id == Guid.Empty)
+        {
+            entity.Id = Guid.NewGuid();
+        }
+
         await _idb.AddAsync(Store, entity);
     }
 
@@ -56,6 +62,12 @@ public sealed class TaskRepository : ITaskRepository
 
         if (entity.DueDate.HasValue)
             entity.DueDate = DateTime.SpecifyKind(entity.DueDate.Value, DateTimeKind.Utc);
+
+        // Ensure Id exists (should exist when updating, but guard just in case)
+        if (entity.Id == Guid.Empty)
+        {
+            entity.Id = Guid.NewGuid();
+        }
 
         await _idb.AddAsync(Store, entity); // put = upsert
     }
